@@ -15,10 +15,13 @@ export default function LocationMap({
   for: inputId,
   defaultLocation,
 }: LocationMapProps) {
-  const [position, setPosition] = useState(null);
-  const [map, setMap] = useState(null);
-  const inputRef = useRef(null);
-  const [center, setCenter] = useState(defaultLocation);
+  const [position, setPosition] = useState<google.maps.LatLngLiteral | null>(
+    null
+  );
+  const [map, setMap] = useState<google.maps.Map | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [center, setCenter] =
+    useState<google.maps.LatLngLiteral>(defaultLocation);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -54,7 +57,7 @@ export default function LocationMap({
     }
   }, [defaultLocation]);
 
-  const onLoad = useCallback((map) => {
+  const onLoad = useCallback((map: google.maps.Map) => {
     console.log("onLoad", map);
     setMap(map);
   }, []);
@@ -65,12 +68,12 @@ export default function LocationMap({
   }, []);
 
   const geocodeLocation = useCallback(
-    (address) => {
+    (address: string) => {
       if (!map || !address) return;
 
       const geocoder = new window.google.maps.Geocoder();
       geocoder.geocode({ address }, (results, status) => {
-        if (status === "OK" && results[0]) {
+        if (status === "OK" && results?.[0]) {
           const { lat, lng } = results[0].geometry.location;
           const newPosition = { lat: lat(), lng: lng() };
           setPosition(newPosition);
@@ -91,7 +94,7 @@ export default function LocationMap({
   );
 
   const reverseGeocode = useCallback(
-    (lat, lng) => {
+    (lat: number, lng: number) => {
       if (!map) return;
 
       const geocoder = new window.google.maps.Geocoder();
@@ -99,9 +102,11 @@ export default function LocationMap({
 
       geocoder.geocode({ location: latlng }, (results, status) => {
         if (status === "OK") {
-          if (results[0]) {
+          if (results?.[0]) {
             const address = results[0].formatted_address;
-            const input = document.getElementById(inputId);
+            const input = document.getElementById(
+              inputId
+            ) as HTMLInputElement | null;
             if (input) {
               input.value = address;
             }
@@ -117,8 +122,8 @@ export default function LocationMap({
   );
 
   const handleMapClick = useCallback(
-    (e) => {
-      const newPosition = { lat: e.latLng.lat(), lng: e.latLng.lng() };
+    (e: google.maps.MapMouseEvent) => {
+      const newPosition = { lat: e.latLng!.lat(), lng: e.latLng!.lng() };
       setPosition(newPosition);
       reverseGeocode(newPosition.lat, newPosition.lng);
     },
@@ -126,17 +131,17 @@ export default function LocationMap({
   );
 
   useEffect(() => {
-    const input = document.getElementById(inputId);
+    const input = document.getElementById(inputId) as HTMLInputElement | null;
     inputRef.current = input;
 
-    const handleBlur = (e) => {
-      geocodeLocation(e.target.value);
+    const handleBlur = (e: FocusEvent) => {
+      geocodeLocation((e.target as HTMLInputElement).value);
     };
 
-    const handleKeyPress = (e) => {
+    const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        geocodeLocation(e.target.value);
+        geocodeLocation((e.target as HTMLInputElement).value);
       }
     };
 

@@ -1,5 +1,3 @@
-import type { APIContext } from "astro";
-
 interface GeoLocation {
   lat: number;
   lng: number;
