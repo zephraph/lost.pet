@@ -24,6 +24,7 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@astrojs/cloudflare": "^11.0.4",
     "@types/react": "^18.0.0",
     "daisyui": "^4.12.10",
     "vitest": "^2.1.1"
