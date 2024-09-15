@@ -12,7 +12,7 @@ const mapContainerStyle = {
 const mapOptions: google.maps.MapOptions = {
   mapTypeControl: false, // Removes the map/satellite toggle
   streetViewControl: false, // Removes Street View
-  zoom: 16, // A good default to see a few streets
+  zoom: 17, // A good default to see a few streets
 };
 
 interface LocationMapProps {
