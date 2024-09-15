@@ -18,7 +18,7 @@ const today = new Date().toISOString().split('T')[0];
                 <div class="mb-4">
                     <label class="block mb-2">Photo</label>
                     <div class="flex space-x-2 mb-2">
-                        <button type="button" id="takePhotoBtn" class="btn btn-outline flex-1">
+                        <button type="button" id="takePhotoBtn" class="btn btn-outline flex-1 mobile-only">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
                             </svg>
@@ -32,6 +32,8 @@ const today = new Date().toISOString().split('T')[0];
                         </button>
                     </div>
                     <input type="file" id="petImage" name="petImage" accept="image/*" class="hidden">
+                    <video id="camera" class="w-full h-48 bg-gray-100 hidden" autoplay playsinline></video>
+                    <canvas id="canvas" class="hidden"></canvas>
                     <div id="imagePreview" class="mt-2 w-full h-48 bg-gray-100 flex items-center justify-center hidden">
                         <img id="previewImage" src="" alt="Pet Image Preview" class="max-w-full max-h-full object-contain">
                     </div>
@@ -84,14 +86,46 @@ const today = new Date().toISOString().split('T')[0];
     const imageInput = document.getElementById('petImage') as HTMLInputElement;
     const imagePreview = document.getElementById('imagePreview');
     const previewImage = document.getElementById('previewImage') as HTMLImageElement;
+    const video = document.getElementById('camera') as HTMLVideoElement;
+    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 
-    takePhotoBtn?.addEventListener('click', () => {
-        imageInput.setAttribute('capture', 'environment');
-        imageInput.click();
+    let stream: MediaStream | null = null;
+
+    takePhotoBtn?.addEventListener('click', async () => {
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+            video.srcObject = stream;
+            video.classList.remove('hidden');
+            imagePreview?.classList.add('hidden');
+        } catch (err) {
+            console.error("Error accessing camera:", err);
+        }
+    });
+
+    video.addEventListener('click', () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d')?.drawImage(video, 0, 0);
+        
+        canvas.toBlob((blob) => {
+            if (blob) {
+                const file = new File([blob], "photo.jpg", { type: "image/jpeg" });
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                imageInput.files = dataTransfer.files;
+                
+                previewImage.src = URL.createObjectURL(blob);
+                imagePreview?.classList.remove('hidden');
+                video.classList.add('hidden');
+                
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
+            }
+        }, 'image/jpeg');
     });
 
     uploadPhotoBtn?.addEventListener('click', () => {
-        imageInput.removeAttribute('capture');
         imageInput.click();
     });
 
@@ -103,6 +137,7 @@ const today = new Date().toISOString().split('T')[0];
                 if (e.target?.result) {
                     previewImage.src = e.target.result as string;
                     imagePreview.classList.remove('hidden');
+                    video.classList.add('hidden');
                 }
             };
             reader.readAsDataURL(file);
