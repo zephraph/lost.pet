@@ -1,9 +1,18 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 const mapContainerStyle = {
   width: "100%",
   height: "100%",
+};
+
+/**
+ * Configuration for the google maps widget
+ */
+const mapOptions: google.maps.MapOptions = {
+  mapTypeControl: false, // Removes the map/satellite toggle
+  streetViewControl: false, // Removes Street View
+  zoom: 17, // A good default to see a few streets
 };
 
 interface LocationMapProps {
@@ -164,6 +173,7 @@ export default function LocationMap({
       onLoad={onLoad}
       onUnmount={onUnmount}
       onClick={handleMapClick}
+      options={mapOptions} // Add this line to apply the custom options
     >
       {position && <Marker position={position} />}
     </GoogleMap>
