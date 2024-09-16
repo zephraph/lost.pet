@@ -1,6 +1,6 @@
 # Lost Pet Project
 
-The goal of this project is to aid people in finding their lost pet projects in a sustainable way.
+The aim of this project is to help people find their lost pets.
 
 ## Principles
 
