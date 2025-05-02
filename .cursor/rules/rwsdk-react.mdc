@@ -106,3 +106,8 @@ export async function addTodo(formData: FormData) {
 5. Keep client components as small as possible, moving server-side logic to server components or server functions.
 6. Always mark client components with "use client" directive.
 7. Always mark server functions with "use server" directive.
+
+## Styling
+
+1. Use tailwind v4 for styling
+2. If tailwind config needs to be added, update `src/app/styles.css` with the css style tailwind config

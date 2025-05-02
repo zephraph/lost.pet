@@ -3,7 +3,9 @@
   "name": "__change_me__",
   "main": "src/worker.tsx",
   "compatibility_date": "2024-09-23",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "assets": {
     "binding": "ASSETS"
   },
@@ -24,7 +26,9 @@
   "migrations": [
     {
       "tag": "v1",
-      "new_sqlite_classes": ["SessionDurableObject"]
+      "new_sqlite_classes": [
+        "SessionDurableObject"
+      ]
     }
   ],
   "d1_databases": [
@@ -33,5 +37,8 @@
       "database_name": "__change_me__",
       "database_id": "__change_me__"
     }
-  ]
+  ],
+  "vars": {
+    "WEBAUTHN_APP_NAME": "lost-pet"
+  }
 }
