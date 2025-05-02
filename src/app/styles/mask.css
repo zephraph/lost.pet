@@ -1,0 +1,22 @@
+.mask-horizontal {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, var(--mask-start-opacity, 1)),
+    black 5%,
+    black 95%,
+    rgba(0, 0, 0, var(--mask-end-opacity, 1))
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, var(--mask-start-opacity, 1)),
+    black 5%,
+    black 95%,
+    rgba(0, 0, 0, var(--mask-end-opacity, 1))
+  );
+}
+
+.mask-horizontal {
+  --mask-start-opacity: 1;
+  --mask-end-opacity: 1;
+  transition: --mask-start-opacity 0.2s ease, --mask-end-opacity 0.2s ease;
+} 
