@@ -1,9 +1,14 @@
 import { defineApp, ErrorResponse } from "@redwoodjs/sdk/worker";
 import { route, render, prefix } from "@redwoodjs/sdk/router";
 import { Document } from "@/app/Document";
-import { Home } from "@/app/pages/Home";
 import { setCommonHeaders } from "@/app/headers";
 import { userRoutes } from "@/app/pages/user/routes";
+import { Home } from "@/app/pages/Home";
+import { LearnMore } from "@/app/pages/LearnMore";
+import { GetInvolved } from "@/app/pages/GetInvolved";
+import { Donate } from "@/app/pages/Donate";
+import { Pet } from "@/app/pages/Pet";
+import { Listings } from "@/app/pages/Listings";
 import { sessions, setupSessionStore } from "./session/store";
 import { Session } from "./session/durableObject";
 import { db, setupDb } from "./db";
@@ -48,17 +53,11 @@ export default defineApp([
   },
   render(Document, [
     route("/", [Home]),
-    route("/protected", [
-      ({ ctx }) => {
-        if (!ctx.user) {
-          return new Response(null, {
-            status: 302,
-            headers: { Location: "/user/login" },
-          });
-        }
-      },
-      Home,
-    ]),
+    route("/learn-more", [LearnMore]),
+    route("/get-involved", [GetInvolved]),
+    route("/donate", [Donate]),
+    route("/pet/:id", [Pet]),
+    route("/listings", [Listings]),
     prefix("/user", userRoutes),
   ]),
 ]);

@@ -104,6 +104,7 @@ export function LostPetCarousel() {
           {MOCK_PETS.map((pet) => (
             <div
               key={pet.id}
+              onClick={() => window.location.href = `/pet/${pet.id}`}
               className="cursor-pointer flex-shrink-0 rounded-lg bg-black/20 p-4 transition-transform hover:scale-[1.02]"
               style={{ width: '300px' }}
             >
