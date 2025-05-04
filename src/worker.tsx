@@ -9,6 +9,8 @@ import { GetInvolved } from "@/app/pages/GetInvolved";
 import { Donate } from "@/app/pages/Donate";
 import { Pet } from "@/app/pages/Pet";
 import { Listings } from "@/app/pages/Listings";
+import { ReportLost } from "@/app/pages/ReportLost";
+import { ReportSighting } from "@/app/pages/ReportSighting";
 import { sessions, setupSessionStore } from "./session/store";
 import { Session } from "./session/durableObject";
 import { db, setupDb } from "./db";
@@ -58,6 +60,8 @@ export default defineApp([
     route("/donate", [Donate]),
     route("/pet/:id", [Pet]),
     route("/listings", [Listings]),
+    route("/report-lost", [ReportLost]),
+    route("/report-sighting", [ReportSighting]),
     prefix("/user", userRoutes),
   ]),
 ]);

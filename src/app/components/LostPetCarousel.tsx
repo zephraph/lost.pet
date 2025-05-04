@@ -1,58 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../styles/mask.css';
+import { getRecentLostPets } from '../rpc/pets';
 
-// Mock data - in real app this would come from props/API
-const MOCK_PETS = [
-  {
-    id: 1,
-    name: 'Max',
-    type: 'Dog',
-    breed: 'Golden Retriever',
-    lastSeen: 'Brooklyn, NY',
-    date: '2024-03-20',
-    image: 'https://placedog.net/400/400?r'
-  },
-  {
-    id: 2,
-    name: 'Luna',
-    type: 'Cat',
-    breed: 'Siamese',
-    lastSeen: 'Queens, NY',
-    date: '2024-03-19',
-    image: 'https://placecats.com/400/400'
-  },
-  {
-    id: 3,
-    name: 'Charlie',
-    type: 'Dog',
-    breed: 'French Bulldog',
-    lastSeen: 'Manhattan, NY',
-    date: '2024-03-18',
-    image: 'https://placedog.net/401/401?r'
-  },
-  {
-    id: 4,
-    name: 'Bella',
-    type: 'Dog',
-    breed: 'Labrador',
-    lastSeen: 'Bronx, NY',
-    date: '2024-03-17',
-    image: 'https://placedog.net/402/402?r'
-  },
-  {
-    id: 5,
-    name: 'Oliver',
-    type: 'Cat',
-    breed: 'Persian',
-    lastSeen: 'Staten Island, NY',
-    date: '2024-03-16',
-    image: 'https://placecats.com/401/401'
-  }
-];
-
-export function LostPetCarousel() {
+// Client component for handling scroll behavior
+function CarouselScroller({ children }: { children: React.ReactNode }) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const updateMask = () => {
@@ -63,7 +16,6 @@ export function LostPetCarousel() {
     const isAtStart = scrollLeft <= 0;
     const isAtEnd = Math.ceil(scrollLeft + clientWidth) >= scrollWidth;
 
-    // Update CSS custom properties based on scroll position
     container.style.setProperty('--mask-start-opacity', isAtStart ? '1' : '0');
     container.style.setProperty('--mask-end-opacity', isAtEnd ? '1' : '0');
   };
@@ -72,14 +24,27 @@ export function LostPetCarousel() {
     const container = scrollRef.current;
     if (!container) return;
 
-    // Initial check
     updateMask();
-
-    // Add scroll listener
     container.addEventListener('scroll', updateMask);
-    
-    // Cleanup
     return () => container.removeEventListener('scroll', updateMask);
+  }, []);
+
+  return (
+    <div 
+      ref={scrollRef}
+      className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide mask-horizontal px-8"
+    >
+      {children}
+    </div>
+  );
+}
+
+// Server component that fetches and displays the pets
+export function LostPetCarousel() {
+  const [pets, setPets] = useState<any[]>([]);
+
+  useEffect(() => {
+    getRecentLostPets().then(setPets);
   }, []);
 
   return (
@@ -96,12 +61,8 @@ export function LostPetCarousel() {
       </div>
       
       <div className="relative -mx-8">
-        {/* Scrolling container */}
-        <div 
-          ref={scrollRef}
-          className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide mask-horizontal px-8"
-        >
-          {MOCK_PETS.map((pet) => (
+        <CarouselScroller>
+          {pets.map((pet) => (
             <div
               key={pet.id}
               onClick={() => window.location.href = `/pet/${pet.id}`}
@@ -117,11 +78,13 @@ export function LostPetCarousel() {
                 <h4 className="text-xl font-semibold">{pet.name}</h4>
                 <p className="text-gray-300">{pet.breed} • {pet.type}</p>
                 <p className="mt-2 text-gray-400">Last seen: {pet.lastSeen}</p>
-                <p className="text-sm text-gray-400">Missing since: {pet.date}</p>
+                <p className="text-sm text-gray-400">
+                  Missing since: {new Date(pet.date).toLocaleDateString()}
+                </p>
               </div>
             </div>
           ))}
-        </div>
+        </CarouselScroller>
       </div>
     </div>
   );
