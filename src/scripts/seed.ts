@@ -1,8 +1,14 @@
 import { defineScript } from "@redwoodjs/sdk/worker";
 import { db, setupDb } from "@/db";
+import { IS_DEV } from "@redwoodjs/sdk/constants";
 
 export default defineScript(async ({ env }) => {
   setupDb(env);
+
+  if (!IS_DEV) {
+    console.log("✨ Skipping seed in non-development environment");
+    return;
+  }
 
   await db.$executeRawUnsafe(`\
     DELETE FROM User;
