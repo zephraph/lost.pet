@@ -12,17 +12,6 @@
   "observability": {
     "enabled": true
   },
-  "durable_objects": {
-    "bindings": [
-      {
-        "name": "SESSION_DURABLE_OBJECT",
-        "class_name": "SessionDurableObject"
-      }
-    ]
-  },
-  "vars": {
-    "WEBAUTHN_APP_NAME": "lost-pet"
-  },
   "migrations": [
     {
       "tag": "v1",
