@@ -17,12 +17,6 @@ importers:
       '@redwoodjs/sdk':
         specifier: 0.0.77
         version: 0.0.77(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.4(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.7(esbuild@0.25.3))(workerd@1.20250428.0)
-      '@simplewebauthn/browser':
-        specifier: ^13.1.0
-        version: 13.1.0
-      '@simplewebauthn/server':
-        specifier: ^13.1.1
-        version: 13.1.1
       better-auth:
         specifier: ^1.2.7
         version: 1.2.7
