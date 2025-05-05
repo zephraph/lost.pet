@@ -15,6 +15,14 @@
   "observability": {
     "enabled": true
   },
+  "migrations": [
+    {
+      "tag": "v2",
+      "deleted_classes": [
+        "SessionDurableObject"
+      ]
+    }
+  ],
   "d1_databases": [
     {
       "binding": "DB",
