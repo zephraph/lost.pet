@@ -15,14 +15,6 @@
   "observability": {
     "enabled": true
   },
-  "migrations": [
-    {
-      "tag": "v1",
-      "new_sqlite_classes": [
-        "SessionDurableObject"
-      ]
-    }
-  ],
   "d1_databases": [
     {
       "binding": "DB",
