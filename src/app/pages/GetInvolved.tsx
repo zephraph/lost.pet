@@ -1,4 +1,5 @@
 import { RequestInfo } from "@redwoodjs/sdk/worker";
+import { Footer } from "../components/Footer";
 
 export function GetInvolved({ ctx }: RequestInfo) {
   return (
@@ -66,6 +67,7 @@ export function GetInvolved({ ctx }: RequestInfo) {
           </section>
         </div>
       </div>
+      <Footer />
     </div>
   );
 } 

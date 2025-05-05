@@ -1,4 +1,5 @@
 import { RequestInfo } from "@redwoodjs/sdk/worker";
+import { Footer } from "../components/Footer";
 
 export function Donate({ ctx }: RequestInfo) {
   return (
@@ -81,6 +82,7 @@ export function Donate({ ctx }: RequestInfo) {
           </section>
         </div>
       </div>
+      <Footer />
     </div>
   );
 } 
