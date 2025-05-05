@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "keywords": [],
-  "author": "",
-  "license": "MIT",
+  "author": "Justin Bennett <lostpet@just-be.dev>",
+  "license": "PolyForm Perimeter License 1.0.0",
   "private": true,
   "scripts": {
     "build": "vite build",
@@ -29,8 +29,7 @@
     "@prisma/adapter-d1": "~6.5.0",
     "@prisma/client": "~6.5.0",
     "@redwoodjs/sdk": "0.0.77",
-    "@simplewebauthn/browser": "^13.1.0",
-    "@simplewebauthn/server": "^13.1.1"
+    "better-auth": "^1.2.7"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.5",
