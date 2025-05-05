@@ -14,6 +14,11 @@ export default defineScript(async ({ env }) => {
     data: {
       id: "1",
       username: "testuser",
+      name: "Test User",
+      email: "test@example.com",
+      emailVerified: false,
+      updatedAt: new Date(),
+      createdAt: new Date(),
     },
   });
 
