@@ -17,6 +17,12 @@
   },
   "migrations": [
     {
+      "tag": "v1",
+      "new_classes": [
+        "SessionDurableObject"
+      ]
+    },
+    {
       "tag": "v2",
       "deleted_classes": [
         "SessionDurableObject"
