@@ -18,8 +18,8 @@ importers:
         specifier: ^2.20.6
         version: 2.20.6(react-dom@19.2.0-canary-39cad7af-20250411(react@19.2.0-canary-39cad7af-20250411))(react@19.2.0-canary-39cad7af-20250411)
       '@redwoodjs/sdk':
-        specifier: 0.0.78
-        version: 0.0.78(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.7(esbuild@0.25.3))(workerd@1.20250428.0)
+        specifier: 0.0.77
+        version: 0.0.77(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.7(esbuild@0.25.3))(workerd@1.20250428.0)
       better-auth:
         specifier: ^1.2.7
         version: 1.2.7
@@ -935,8 +935,8 @@ packages:
   '@react-google-maps/marker-clusterer@2.20.0':
     resolution: {integrity: sha512-tieX9Va5w1yP88vMgfH1pHTacDQ9TgDTjox3tLlisKDXRQWdjw+QeVVghhf5XqqIxXHgPdcGwBvKY6UP+SIvLw==}
 
-  '@redwoodjs/sdk@0.0.78':
-    resolution: {integrity: sha512-VQAK5xgIGBErEXlFcBXompMbIGnlPbxpH9rWWJHal6NUacn95nJLhJ++wbdKVIHYwne/m3C0V2jYOUV2Ku6iUg==}
+  '@redwoodjs/sdk@0.0.77':
+    resolution: {integrity: sha512-1ghY1dsKeTmVomPe5fVrp+2gOCIV0j0EX1/AdQXECq/XHVBQiH+/hLBz5HhipmkEFXysP3pjSYb+AkppWCXRzw==}
     hasBin: true
     peerDependencies:
       vite: ^6.2.6
@@ -2972,7 +2972,7 @@ snapshots:
 
   '@react-google-maps/marker-clusterer@2.20.0': {}
 
-  '@redwoodjs/sdk@0.0.78(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.7(esbuild@0.25.3))(workerd@1.20250428.0)':
+  '@redwoodjs/sdk@0.0.77(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.7(esbuild@0.25.3))(workerd@1.20250428.0)':
     dependencies:
       '@cloudflare/vite-plugin': 1.1.0(rollup@4.40.1)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(workerd@1.20250428.0)(wrangler@4.14.2(@cloudflare/workers-types@4.20250502.0))
       '@cloudflare/workers-types': 4.20250502.0
