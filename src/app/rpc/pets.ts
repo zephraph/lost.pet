@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from '@/db';
-import { requestInfo } from "rwsdk/worker";
+import { requestInfo } from "@redwoodjs/sdk/worker";
 
 export async function getRecentLostPets() {
   return db.pet.findMany({

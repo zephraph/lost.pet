@@ -1,5 +1,5 @@
 import { AppContext } from "../src/worker";
 
-declare module "rwsdk/worker" {
-  interface DefaultAppContext extends AppContext { }
+declare module "@redwoodjs/sdk/worker" {
+  interface DefaultAppContext extends AppContext {}
 }

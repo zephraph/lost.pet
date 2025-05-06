@@ -1,6 +1,6 @@
-import { defineScript } from "rwsdk/worker";
+import { defineScript } from "@redwoodjs/sdk/worker";
 import { db, setupDb } from "@/db";
-import { IS_DEV } from "rwsdk/constants";
+import { IS_DEV } from "@redwoodjs/sdk/constants";
 
 export default defineScript(async ({ env }) => {
   setupDb(env);

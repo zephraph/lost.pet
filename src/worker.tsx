@@ -1,5 +1,5 @@
-import { defineApp } from "rwsdk/worker";
-import { route, render } from "rwsdk/router";
+import { defineApp } from "@redwoodjs/sdk/worker";
+import { route, render } from "@redwoodjs/sdk/router";
 import { Document } from "@/app/Document";
 import { setCommonHeaders } from "@/app/headers";
 import { Home } from "@/app/pages/Home";

@@ -1,4 +1,4 @@
-import { RequestInfo } from "rwsdk/worker";
+import { RequestInfo } from "@redwoodjs/sdk/worker";
 import { Footer } from "../components/Footer";
 
 // Using the same mock data from LostPetCarousel for now

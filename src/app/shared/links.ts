@@ -1,3 +1,3 @@
-import { defineLinks } from "rwsdk/router";
+import { defineLinks } from "@redwoodjs/sdk/router";
 
 export const link = defineLinks(["/"]);

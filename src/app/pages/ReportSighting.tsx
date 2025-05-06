@@ -1,4 +1,4 @@
-import { RequestInfo } from "rwsdk/worker";
+import { RequestInfo } from "@redwoodjs/sdk/worker";
 import { reportPetSighting } from "../rpc/pets";
 import { Footer } from "../components/Footer";
 
