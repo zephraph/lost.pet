@@ -1,4 +1,4 @@
-import { RequestInfo } from "@redwoodjs/sdk/worker";
+import { RequestInfo } from "rwsdk/worker";
 import { LostPetCarousel } from "../components/LostPetCarousel";
 import { Footer } from "../components/Footer";
 
