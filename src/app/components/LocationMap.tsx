@@ -45,6 +45,34 @@ export default function LocationMap({
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [center, setCenter] = useState<google.maps.LatLngLiteral>(defaultLocation);
 
+  const reverseGeocode = useCallback(
+    (lat: number, lng: number) => {
+      if (!map) return;
+
+      const geocoder = new window.google.maps.Geocoder();
+      const latlng = { lat, lng };
+
+      geocoder.geocode({ location: latlng }, (results, status) => {
+        if (status === "OK") {
+          if (results?.[0]) {
+            const address = results[0].formatted_address;
+            const input = document.getElementById(
+              inputId
+            ) as HTMLInputElement | null;
+            if (input) {
+              input.value = address;
+            }
+          } else {
+            console.log("No results found");
+          }
+        } else {
+          console.error("Geocoder failed due to: " + status);
+        }
+      });
+    },
+    [map, inputId]
+  );
+
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -55,6 +83,11 @@ export default function LocationMap({
           };
           setCenter(userLocation);
           setPosition(userLocation);
+          // Update hidden inputs
+          const latInput = document.getElementById(latitudeId) as HTMLInputElement;
+          const lngInput = document.getElementById(longitudeId) as HTMLInputElement;
+          if (latInput) latInput.value = userLocation.lat.toString();
+          if (lngInput) lngInput.value = userLocation.lng.toString();
           reverseGeocode(userLocation.lat, userLocation.lng);
         },
         () => {
@@ -62,6 +95,11 @@ export default function LocationMap({
           // Use the defaultLocation if geolocation fails
           setCenter(defaultLocation);
           setPosition(defaultLocation);
+          // Update hidden inputs
+          const latInput = document.getElementById(latitudeId) as HTMLInputElement;
+          const lngInput = document.getElementById(longitudeId) as HTMLInputElement;
+          if (latInput) latInput.value = defaultLocation.lat.toString();
+          if (lngInput) lngInput.value = defaultLocation.lng.toString();
           reverseGeocode(defaultLocation.lat, defaultLocation.lng);
         }
       );
@@ -70,9 +108,14 @@ export default function LocationMap({
       // Use the defaultLocation if geolocation is not supported
       setCenter(defaultLocation);
       setPosition(defaultLocation);
+      // Update hidden inputs
+      const latInput = document.getElementById(latitudeId) as HTMLInputElement;
+      const lngInput = document.getElementById(longitudeId) as HTMLInputElement;
+      if (latInput) latInput.value = defaultLocation.lat.toString();
+      if (lngInput) lngInput.value = defaultLocation.lng.toString();
       reverseGeocode(defaultLocation.lat, defaultLocation.lng);
     }
-  }, [defaultLocation]);
+  }, [defaultLocation, reverseGeocode, latitudeId, longitudeId]);
 
   const onLoad = useCallback((map: google.maps.Map) => {
     setMap(map);
@@ -111,34 +154,6 @@ export default function LocationMap({
       });
     },
     [map, inputId, latitudeId, longitudeId]
-  );
-
-  const reverseGeocode = useCallback(
-    (lat: number, lng: number) => {
-      if (!map) return;
-
-      const geocoder = new window.google.maps.Geocoder();
-      const latlng = { lat, lng };
-
-      geocoder.geocode({ location: latlng }, (results, status) => {
-        if (status === "OK") {
-          if (results?.[0]) {
-            const address = results[0].formatted_address;
-            const input = document.getElementById(
-              inputId
-            ) as HTMLInputElement | null;
-            if (input) {
-              input.value = address;
-            }
-          } else {
-            console.log("No results found");
-          }
-        } else {
-          console.error("Geocoder failed due to: " + status);
-        }
-      });
-    },
-    [map, inputId]
   );
 
   const handleMapClick = useCallback(
