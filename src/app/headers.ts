@@ -21,12 +21,12 @@ export const setCommonHeaders =
       // Explicitly disables access to specific browser features/APIs
       headers.set(
         "Permissions-Policy",
-        "geolocation=(), microphone=(), camera=()",
+        "geolocation=(self), microphone=(), camera=()",
       );
 
-      // Defines trusted sources for content loading and script execution:
-      // headers.set(
-      //   "Content-Security-Policy",
-      //   `default-src 'self'; script-src 'self' 'nonce-${nonce}' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; frame-src https://challenges.cloudflare.com; img-src 'self' https://placedog.net https://placecats.com; object-src 'none';`,
-      // );
+      // Defines trusted sources for content loading and script execution
+      headers.set(
+        "Content-Security-Policy",
+        `default-src 'self'; script-src 'self' 'unsafe-eval' 'nonce-${nonce}' https://challenges.cloudflare.com https://*.googleapis.com https://*.gstatic.com; style-src 'self' 'unsafe-inline' https://*.googleapis.com; frame-src https://challenges.cloudflare.com; img-src 'self' https://placedog.net https://placecats.com https://*.googleapis.com https://*.gstatic.com data:; connect-src 'self' https://*.googleapis.com https://*.gstatic.com; font-src 'self' https://*.gstatic.com; object-src 'none'`
+      );
     };
