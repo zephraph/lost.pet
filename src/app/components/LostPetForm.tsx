@@ -12,6 +12,16 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [error, setError] = useState<string | null>(null);
 
+  const getCurrentDateTime = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  };
+
   async function handleAction(formData: FormData) {
     setStatus('submitting');
     setError(null);
@@ -137,6 +147,8 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
               type="datetime-local"
               name="date"
               required
+              defaultValue={getCurrentDateTime()}
+              max={getCurrentDateTime()}
               className="w-full rounded-lg border border-gray-600 bg-black/20 px-4 py-2 text-white"
             />
           </div>
