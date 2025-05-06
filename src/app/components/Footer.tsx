@@ -4,8 +4,8 @@ export function Footer() {
       <div className="flex flex-col items-center gap-6">
         {/* Navigation Links */}
         <div className="flex gap-8">
-          <a href="/learn-more" className="hover:text-white transition-colors">
-            Learn More
+          <a href="/about" className="hover:text-white transition-colors">
+            About Us
           </a>
           <a href="/get-involved" className="hover:text-white transition-colors">
             Get Involved
