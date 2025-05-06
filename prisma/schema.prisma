@@ -2,7 +2,6 @@ generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
   output          = "../node_modules/.prisma/client"
-
 }
 
 datasource db {
@@ -105,9 +104,9 @@ model Pet {
   name      String
   type      String
   breed     String
-  lastSeen  String
   date      DateTime
   image     String
+  // Last seen location
   latitude  Float
   longitude Float
   createdAt DateTime @default(now())
