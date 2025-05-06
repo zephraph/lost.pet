@@ -1,5 +1,6 @@
 import { RequestInfo } from "@redwoodjs/sdk/worker";
 import { reportLostPet } from "../rpc/pets";
+import { Footer } from "../components/Footer";
 
 export function ReportLost({ ctx }: RequestInfo) {
   return (
@@ -130,6 +131,7 @@ export function ReportLost({ ctx }: RequestInfo) {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 } 

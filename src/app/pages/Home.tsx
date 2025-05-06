@@ -1,5 +1,6 @@
 import { RequestInfo } from "@redwoodjs/sdk/worker";
 import { LostPetCarousel } from "../components/LostPetCarousel";
+import { Footer } from "../components/Footer";
 
 export function Home({ ctx }: RequestInfo) {
   return (
@@ -51,9 +52,9 @@ export function Home({ ctx }: RequestInfo) {
                   </a>
                 </div>
                 <div className="ml-4 h-6 w-px bg-white/40" />
-                {ctx.user?.username ? (
+                {ctx.user?.name ? (
                   <span className="ml-4 font-medium text-white">
-                    {ctx.user.username}
+                    {ctx.user.name}
                   </span>
                 ) : (
                   <a
@@ -106,28 +107,7 @@ export function Home({ ctx }: RequestInfo) {
             </div>
           </div>
 
-          {/* Footer */}
-          <div className="container mx-auto px-4 py-8 text-center text-gray-300">
-            <div className="flex flex-col items-center gap-6">
-              {/* Navigation Links */}
-              <div className="flex gap-8">
-                <a href="/learn-more" className="hover:text-white transition-colors">
-                  Learn More
-                </a>
-                <a href="/get-involved" className="hover:text-white transition-colors">
-                  Get Involved
-                </a>
-                <a href="/donate" className="hover:text-white transition-colors">
-                  Donate
-                </a>
-              </div>
-              
-              {/* Copyright */}
-              <div className="text-sm text-gray-400">
-                © 2025 The Lost Pet Project. All rights reserved.
-              </div>
-            </div>
-          </div>
+          <Footer />
         </div>
       </div>
     </div>

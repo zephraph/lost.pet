@@ -1,4 +1,5 @@
 import { RequestInfo } from "@redwoodjs/sdk/worker";
+import { Footer } from "../components/Footer";
 
 export function Pet({ ctx, params }: RequestInfo) {
   // In a real app, this would fetch from your database
@@ -88,6 +89,7 @@ export function Pet({ ctx, params }: RequestInfo) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 } 

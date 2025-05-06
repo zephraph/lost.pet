@@ -1,4 +1,5 @@
 import { RequestInfo } from "@redwoodjs/sdk/worker";
+import { Footer } from "../components/Footer";
 
 // Using the same mock data from LostPetCarousel for now
 const MOCK_PETS = [
@@ -166,6 +167,7 @@ export function Listings({ ctx }: RequestInfo) {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 } 
