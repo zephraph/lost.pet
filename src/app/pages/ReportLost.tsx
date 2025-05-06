@@ -1,4 +1,4 @@
-import { RequestInfo } from "@redwoodjs/sdk/worker";
+import { RequestInfo } from "rwsdk/worker";
 import { Footer } from "../components/Footer";
 import { LostPetForm } from "../components/LostPetForm";
 import { env } from "cloudflare:workers";

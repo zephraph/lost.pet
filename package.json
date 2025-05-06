@@ -1,5 +1,5 @@
 {
-  "name": "@redwoodjs/starter-standard",
+  "name": "lost.pet",
   "version": "1.0.0",
   "description": "Build fast, server-driven webapps on Cloudflare with SSR, RSC, and realtime. ",
   "main": "index.js",
@@ -29,8 +29,8 @@
     "@prisma/adapter-d1": "~6.5.0",
     "@prisma/client": "~6.5.0",
     "@react-google-maps/api": "^2.20.6",
-    "@redwoodjs/sdk": "0.0.78",
-    "better-auth": "^1.2.7"
+    "better-auth": "^1.2.7",
+    "rwsdk": "^0.0.80"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.5",
