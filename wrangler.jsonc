@@ -6,9 +6,6 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "routes": [
-    "lost.pet/*"
-  ],
   "assets": {
     "binding": "ASSETS"
   },
