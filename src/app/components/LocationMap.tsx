@@ -28,7 +28,7 @@ interface LocationMapProps {
   longitudeId: string;
 }
 
-export default function LocationMap({
+export function LocationMap({
   for: inputId,
   defaultLocation,
   apiKey,

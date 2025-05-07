@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import LocationMap from "./LocationMap";
+import { LocationMap } from "./LocationMap";
 import { reportLostPet } from "../rpc/pets";
 
 type LostPetFormProps = {
