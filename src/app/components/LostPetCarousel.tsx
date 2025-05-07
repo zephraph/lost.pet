@@ -1,6 +1,7 @@
 import '../styles/mask.css';
 import { getRecentLostPets } from '../rpc/pets';
-import { CarouselScroller, PetCard } from './CarouselClient';
+import { CarouselScroller } from './CarouselScroller';
+import { PetCard } from './PetCard';
 
 export async function LostPetCarousel() {
   const pets = await getRecentLostPets();
