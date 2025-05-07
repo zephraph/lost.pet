@@ -21,8 +21,8 @@ importers:
         specifier: ^1.2.7
         version: 1.2.7
       rwsdk:
-        specifier: ^0.0.80
-        version: 0.0.80(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.8(esbuild@0.25.3))(workerd@1.20250428.0)
+        specifier: ^0.0.81
+        version: 0.0.81(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.8(esbuild@0.25.3))(workerd@1.20250428.0)
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.1.5
@@ -1972,8 +1972,8 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  rwsdk@0.0.80:
-    resolution: {integrity: sha512-78BeG+gEAvkehjwYYyIBCKXeFjjEUmluOeGjxaU59yl0moUeql9ijwb+gNE6y3Rw3MOPsJhODAD0ZdzSrpoJHw==}
+  rwsdk@0.0.81:
+    resolution: {integrity: sha512-ubuK/wdErgxf46DGOIJ63UD4LIIPBl5uad9i4c+puveyOLmG/zs7bfa/meWW65+eTTig3yLtQM2Mjiv0h638dA==}
     hasBin: true
     peerDependencies:
       vite: ^6.2.6
@@ -2264,6 +2264,7 @@ packages:
   wrangler@4.14.2:
     resolution: {integrity: sha512-kD0ilA7WXwhDt1lfyPwppZ2/lT9uwDLp93tfqnqrUENmP/uj+5tErzfZY51emtgXZoU1HFK6HytBEYLRCvCiPg==}
     engines: {node: '>=18.0.0'}
+    deprecated: This version has a bug in wrangler dev introduced by the update to use Node.js v20
     hasBin: true
     peerDependencies:
       '@cloudflare/workers-types': ^4.20250428.0
@@ -4021,7 +4022,7 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  rwsdk@0.0.80(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.8(esbuild@0.25.3))(workerd@1.20250428.0):
+  rwsdk@0.0.81(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.8(esbuild@0.25.3))(workerd@1.20250428.0):
     dependencies:
       '@cloudflare/vite-plugin': 1.1.0(rollup@4.40.1)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(workerd@1.20250428.0)(wrangler@4.14.2(@cloudflare/workers-types@4.20250502.0))
       '@cloudflare/workers-types': 4.20250502.0
