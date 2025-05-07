@@ -30,7 +30,7 @@
     "@prisma/client": "~6.5.0",
     "@react-google-maps/api": "^2.20.6",
     "better-auth": "^1.2.7",
-    "rwsdk": "^0.0.80"
+    "rwsdk": "0.0.80-test.20250507145208"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.5",
