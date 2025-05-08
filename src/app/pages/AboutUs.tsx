@@ -11,7 +11,7 @@ export function AboutUs({ ctx }: RequestInfo) {
           <div className="space-y-6 text-lg text-gray-300">
             <p>
               Hi, I'm Justin. In 2016, while living in Knoxville, Tennessee, my cat Oz slipped out when 
-              my roommate left the door open. He was more than just a pet—he was family.
+              my roommate left the door open.
             </p>
 
             <p>
@@ -40,9 +40,9 @@ export function AboutUs({ ctx }: RequestInfo) {
 
             <div className="mt-12 rounded-lg bg-white/5 p-6">
               <p className="italic">
-                Our mission is simple: bring communities together to help reunite lost pets with their 
+                The mission is simple: bring communities together to help reunite lost pets with their 
                 families. The tools and support you need to find your pet will always be free and accessible. 
-                We believe in building sustainable solutions where your pet's safe return is the only metric that matters.
+                I believe in building sustainable solutions where your pet's safe return is the only metric that matters.
               </p>
             </div>
           </div>
