@@ -1,11 +1,16 @@
 import { env } from "cloudflare:workers";
 import { route } from "rwsdk/router";
+import manifest from "cloud-assets/manifest.json";
 
 export const cloudAssetRoutes = [
   route("/:file", async (ctx) => {
-    const file = ctx.params.file;
+    const file: keyof typeof manifest = ctx.params.file;
 
-    const asset = await env.BUCKET.get(file);
+    if (!(file in manifest)) {
+      return new Response("Not found", { status: 404 });
+    }
+
+    const asset = await env.BUCKET.get(manifest[file].hash);
 
     if (!asset) {
       return new Response("Not found", { status: 404 });
