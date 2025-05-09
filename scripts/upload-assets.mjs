@@ -66,7 +66,9 @@ if (import.meta.url.startsWith("file:")) {
   if (process.argv[1] === modulePath) {
     const { readdir } = await import("node:fs/promises");
     const dir = "cloud-assets";
-    const files = (await readdir(dir)).filter((f) => f !== "manifest.json");
+    const files = (await readdir(dir)).filter((f) =>
+      f !== "manifest.json" && f !== "README.md"
+    );
     const force = process.argv.includes("--force");
     // Build hash-to-filename map
     const hashToName = {};
