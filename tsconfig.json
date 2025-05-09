@@ -17,11 +17,13 @@
     "types": [
       "./worker-configuration.d.ts",
       "./types/rw.d.ts",
-      "./types/vite.d.ts"
+      "./types/vite.d.ts",
+      "./types/cloud-assets-manifest.d.ts"
     ],
     "paths": {
       "@/*": ["./src/*"],
-      ".prisma/*": ["./node_modules/.prisma/*"]
+      ".prisma/*": ["./node_modules/.prisma/*"],
+      "cloud-assets/*": ["./cloud-assets/*"]
     },
     /* Enable importing .json files */
     "resolveJsonModule": true,
