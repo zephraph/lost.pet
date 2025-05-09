@@ -69,3 +69,4 @@ prisma/dev.db*
 
 cloud-assets/*
 !cloud-assets/manifest.json
+!cloud-assets/README.md
