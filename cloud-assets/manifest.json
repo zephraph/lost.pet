@@ -1,0 +1,17 @@
+{
+  "homepage-bg.jpg": {
+    "hash": "8e74a9fc9c9ebe549a7d0939b153954bc124bea1c53769130151302979f943ed",
+    "content-type": "image/jpeg",
+    "credits": [
+      {
+        "name": "Artūrs Ķipsts",
+        "url": "https://unsplash.com/@skvaad"
+      }
+    ]
+  },
+  "404-bg.jpg": {
+    "hash": "9d9dc14d7f33e7841c6bf5aa1f17ec7a4348ce5311d445b4815fa0720a2c986c",
+    "content-type": "image/jpeg",
+    "source": "https://unsplash.com/photos/brown-long-coat-small-dog-walking-on-street-during-daytime-NCArqzab0AI"
+  }
+}
