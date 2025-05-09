@@ -2,7 +2,7 @@ import "zx/globals";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import { writeFile } from "node:fs/promises";
-import { extname, join } from "node:path";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import mime from "mime";
 import manifest from "../cloud-assets/manifest.json" with { type: "json" };
@@ -28,7 +28,6 @@ async function processAsset(filePath, manifest, hashToName, force = false) {
   const asset = filePath.startsWith("cloud-assets")
     ? filePath
     : join("cloud-assets", filePath);
-  const ext = extname(filePath);
   const file = filePath.replace("cloud-assets/", "");
   const contentType = mime.getType(asset) || "application/octet-stream";
   const hash = await hashFile(asset);
@@ -49,10 +48,10 @@ async function processAsset(filePath, manifest, hashToName, force = false) {
     // If force, fall through to upload and update manifest
   }
   // New file or force upload
-  const hashFileName = hash + ext;
-  await $`wrangler r2 object put lost-pet-assets/${hashFileName} --file=${asset}`;
-  await $`wrangler r2 object put lost-pet-assets/${hashFileName} --remote --file=${asset}`;
+  await $`wrangler r2 object put lost-pet-assets/${hash} --file=${asset} --content-type=${contentType}`;
+  await $`wrangler r2 object put lost-pet-assets/${hash} --remote --file=${asset} --content-type=${contentType}`;
   manifest[file] = {
+    ...manifest[file],
     hash,
     "content-type": contentType,
   };
