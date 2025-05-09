@@ -30,9 +30,11 @@
     "@prisma/client": "~6.7.0",
     "@react-google-maps/api": "^2.20.6",
     "better-auth": "^1.2.7",
+    "mime": "^4.0.7",
     "rwsdk": "^0.0.84"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@tailwindcss/vite": "^4.1.5",
     "@types/node": "^22.15.15",
     "@types/react": "^19.1.2",
@@ -41,12 +43,14 @@
     "tailwindcss": "^4.1.5",
     "typescript": "^5.8.3",
     "vite": "^6.2.6",
-    "wrangler": "^4.14.3"
+    "wrangler": "^4.14.3",
+    "zx": "^8.5.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "@prisma/client",
       "@prisma/engines",
+      "@tailwindcss/oxide",
       "esbuild",
       "prisma",
       "sharp",
