@@ -1,6 +1,6 @@
 import { env } from "cloudflare:workers";
 import { route } from "rwsdk/router";
-import manifest from "cloud-assets/manifest.json";
+import manifest from "cloud-assets/manifest";
 
 export const cloudAssetRoutes = [
   route("/:file", async (ctx) => {
