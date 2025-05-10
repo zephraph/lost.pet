@@ -8,14 +8,18 @@ export function Home({ ctx }: RequestInfo) {
       {/* Hero Section with Background Image */}
       <div className="relative min-h-screen">
         {/* Background image container */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url("/julian-hochgesang-kS5w3ndvFW0-unsplash-cropped.jpg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/cloud-assets/homepage-bg--mobile.jpg"
+            srcSet="/cloud-assets/homepage-bg--offset.jpg 1280w, /cloud-assets/homepage-bg--desktop.jpg 1024w, /cloud-assets/homepage-bg--tablet.jpg 640w, /cloud-assets/homepage-bg--mobile.jpg 320w"
+            sizes="100vw"
+            alt="Lost pets background"
+            className="w-full h-full object-cover xl:object-[calc(30%-0.8vw+250px)_center] lg:object-[calc(22%-1vw-20px)_center]"
+            style={{ minHeight: '100%', minWidth: '100%' }}
+            loading="eager"
+            fetchPriority="high"
+          />
+        </div>
 
         {/* Content */}
         <div className="relative">
@@ -70,7 +74,7 @@ export function Home({ ctx }: RequestInfo) {
 
           {/* Main Content */}
           <div className="container mx-auto px-4 pt-16">
-            <div className="max-w-[60%] [text-shadow:_0_1px_2px_rgba(0,0,0,0.8)]">
+            <div className="w-full md:w-full lg:max-w-[60%] [text-shadow:_0_1px_2px_rgba(0,0,0,0.8)]">
               {/* Main Heading */}
               <div className="mb-24">
                 <h2 className="mb-6 text-6xl font-bold leading-tight">
@@ -89,7 +93,7 @@ export function Home({ ctx }: RequestInfo) {
 
           {/* Why It Matters Section */}
           <div className="container mx-auto px-4 py-16">
-            <div className="max-w-[60%] rounded-xl bg-white/10 p-8 backdrop-blur-sm">
+            <div className="w-full md:w-full lg:max-w-[60%] rounded-xl bg-white/10 p-8 backdrop-blur-sm">
               <h3 className="mb-6 text-2xl font-bold">Why It Matters</h3>
               <p className="mb-4 text-xl text-gray-300">
                 Every year, millions of pets go missing. Too many never make it home.

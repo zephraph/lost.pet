@@ -17,8 +17,7 @@
     "types": [
       "./worker-configuration.d.ts",
       "./types/rw.d.ts",
-      "./types/vite.d.ts",
-      "./types/cloud-assets-manifest.d.ts"
+      "./types/vite.d.ts"
     ],
     "paths": {
       "@/*": ["./src/*"],
