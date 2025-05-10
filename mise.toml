@@ -13,5 +13,8 @@ idiomatic_version_file_enable_tools = ["node"]
 description = "Upload assets to Cloudflare R2. Run with `-- --force` to force upload."
 run = "tsx scripts/upload-assets.ts"
 
+[tasks.download-assets]
+run = "tsx scripts/download-assets.ts"
+
 [tasks.dev]
 run = "pnpm run dev"
