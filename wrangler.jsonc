@@ -44,5 +44,5 @@
   ],
   "vars": {
     "WEBAUTHN_APP_NAME": "lost-pet"
-  }
+  },
 }
