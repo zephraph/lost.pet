@@ -10,4 +10,8 @@ _.path = "node_modules/.bin"
 idiomatic_version_file_enable_tools = ["node"]
 
 [tasks.upload-assets]
-run = "node scripts/upload-assets.mjs"
+description = "Upload assets to Cloudflare R2. Run with `-- --force` to force upload."
+run = "tsx scripts/upload-assets.ts"
+
+[tasks.dev]
+run = "pnpm run dev"
