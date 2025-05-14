@@ -1,5 +1,5 @@
 [tools]
-pnpm = "10.10.0"
+pnpm = "10.11.0"
 
 [env]
 _.path = "node_modules/.bin"
