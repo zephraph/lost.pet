@@ -21,8 +21,8 @@ importers:
         specifier: ^1.2.7
         version: 1.2.7
       rwsdk:
-        specifier: ^0.0.83
-        version: 0.0.83(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.8(esbuild@0.25.4))(workerd@1.20250507.0)
+        specifier: ^0.0.84
+        version: 0.0.84(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.8(esbuild@0.25.4))(workerd@1.20250507.0)
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.1.5
@@ -1847,8 +1847,8 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  rwsdk@0.0.83:
-    resolution: {integrity: sha512-Uwe8zou31gRKMvRnQ/Qt2VD+RhG4WS6eP8dBzFCw+d/6c87JhW7tx0jsk6WTN5hII7qytvKRR4cgAvHVHlwmKg==}
+  rwsdk@0.0.84:
+    resolution: {integrity: sha512-H9KHKQksFusTIsj+Vgv9Qqwr0zHRY4Jj1ZussKY4Rh7P8w2ew7GtkACteJ+VzGn+5uVLFCeavSnNqJW189stzA==}
     hasBin: true
     peerDependencies:
       vite: ^6.2.6
@@ -3971,7 +3971,7 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  rwsdk@0.0.83(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.8(esbuild@0.25.4))(workerd@1.20250507.0):
+  rwsdk@0.0.84(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(webpack@5.99.8(esbuild@0.25.4))(workerd@1.20250507.0):
     dependencies:
       '@cloudflare/vite-plugin': 1.1.1(rollup@4.40.1)(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))(workerd@1.20250507.0)(wrangler@4.14.4(@cloudflare/workers-types@4.20250507.0))
       '@cloudflare/workers-types': 4.20250507.0
@@ -3983,7 +3983,6 @@ snapshots:
       '@vitejs/plugin-react': 4.4.1(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0))
       debug: 4.4.0
       enhanced-resolve: 5.18.1
-      es-module-lexer: 1.7.0
       eventsource-parser: 3.0.1
       execa: 9.5.2
       fs-extra: 11.3.0
