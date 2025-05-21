@@ -63,8 +63,9 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
         <h2 className="mb-6 text-2xl font-semibold text-rose-400">Pet Information</h2>
         <div className="grid gap-6">
           <div>
-            <label className="mb-2 block font-medium">Pet's Name</label>
+            <label htmlFor="petName" className="mb-2 block font-medium">Pet's Name</label>
             <input
+              id="petName"
               type="text"
               name="name"
               required
@@ -75,8 +76,9 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
 
           <div className="grid gap-6 sm:grid-cols-2">
             <div>
-              <label className="mb-2 block font-medium">Type of Pet</label>
+              <label htmlFor="petType" className="mb-2 block font-medium">Type of Pet</label>
               <select
+                id="petType"
                 name="type"
                 required
                 className="w-full rounded-lg border border-gray-600 bg-black/20 px-4 py-2 text-white"
@@ -89,8 +91,9 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
             </div>
 
             <div>
-              <label className="mb-2 block font-medium">Breed</label>
+              <label htmlFor="petBreed" className="mb-2 block font-medium">Breed</label>
               <input
+                id="petBreed"
                 type="text"
                 name="breed"
                 required
@@ -101,8 +104,9 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
           </div>
 
           <div>
-            <label className="mb-2 block font-medium">Upload Photo</label>
+            <label htmlFor="petPhoto" className="mb-2 block font-medium">Upload Photo</label>
             <input
+              id="petPhoto"
               type="file"
               name="image"
               accept="image/*"
@@ -118,7 +122,7 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
         <h2 className="mb-6 text-2xl font-semibold text-rose-400">Last Seen Information</h2>
         <div className="grid gap-6">
           <div>
-            <label className="mb-2 block font-medium">Location</label>
+            <label htmlFor="lastSeen" className="mb-2 block font-medium">Location</label>
             <input
               required
               type="text"
@@ -142,8 +146,9 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
           </div>
 
           <div>
-            <label className="mb-2 block font-medium">Date Last Seen</label>
+            <label htmlFor="lastSeenDate" className="mb-2 block font-medium">Date Last Seen</label>
             <input
+              id="lastSeenDate"
               type="datetime-local"
               name="date"
               required

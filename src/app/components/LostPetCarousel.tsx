@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import '../styles/mask.css';
 import { getRecentLostPets } from '../rpc/pets';
 
@@ -8,7 +8,7 @@ import { getRecentLostPets } from '../rpc/pets';
 function CarouselScroller({ children }: { children: React.ReactNode }) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const updateMask = () => {
+  const updateMask = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
 
@@ -18,7 +18,7 @@ function CarouselScroller({ children }: { children: React.ReactNode }) {
 
     container.style.setProperty('--mask-start-opacity', isAtStart ? '1' : '0');
     container.style.setProperty('--mask-end-opacity', isAtEnd ? '1' : '0');
-  };
+  }, []);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -27,7 +27,7 @@ function CarouselScroller({ children }: { children: React.ReactNode }) {
     updateMask();
     container.addEventListener('scroll', updateMask);
     return () => container.removeEventListener('scroll', updateMask);
-  }, []);
+  }, [updateMask]);
 
   return (
     <div 
@@ -63,9 +63,9 @@ export function LostPetCarousel() {
       <div className="relative -mx-8">
         <CarouselScroller>
           {pets.map((pet) => (
-            <div
+            <a
               key={pet.id}
-              onClick={() => window.location.href = `/pet/${pet.id}`}
+              href={`/pet/${pet.id}`}
               className="cursor-pointer flex-shrink-0 rounded-lg bg-black/20 p-4 transition-transform hover:scale-[1.02]"
               style={{ width: '300px' }}
             >
@@ -82,7 +82,7 @@ export function LostPetCarousel() {
                   Missing since: {new Date(pet.date).toLocaleDateString()}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </CarouselScroller>
       </div>
