@@ -19,7 +19,11 @@ export const cloudAssetRoutes = [
 		const contentType =
 			asset.httpMetadata?.contentType || "application/octet-stream";
 		return new Response(asset.body, {
-			headers: { "Content-Type": contentType },
+			headers: {
+				"Content-Type": contentType,
+				"Cache-Control": "public, max-age=600",
+				"ETag": manifest[file].hash,
+			},
 		});
 	}),
 ];
