@@ -66,3 +66,7 @@ coverage
 .wrangler
 
 prisma/dev.db*
+
+cloud-assets/*
+!cloud-assets/manifest.ts
+!cloud-assets/README.md

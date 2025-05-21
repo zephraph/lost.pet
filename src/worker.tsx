@@ -1,5 +1,5 @@
 import { defineApp } from "rwsdk/worker";
-import { route, render } from "rwsdk/router";
+import { route, render, prefix } from "rwsdk/router";
 import { Document } from "@/app/Document";
 import { setCommonHeaders } from "@/app/headers";
 import { Home } from "@/app/pages/Home";
@@ -13,6 +13,7 @@ import { AboutUs } from "@/app/pages/AboutUs";
 import { setupDb } from "./db";
 import { env } from "cloudflare:workers";
 import { auth } from "./lib/auth";
+import { cloudAssetRoutes } from "./app/pages/cloud-assets";
 
 export type AppContext = {
   user: typeof auth.$Infer.Session.user | null;
@@ -42,5 +43,6 @@ export default defineApp([
     route("/report-lost", [ReportLost]),
     route("/report-sighting", [ReportSighting]),
     route("/about", [AboutUs]),
+    prefix("/cloud-assets", cloudAssetRoutes),
   ]),
 ]);

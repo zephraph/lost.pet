@@ -29,6 +29,12 @@
       ]
     }
   ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "lost-pet-assets"
+    }
+  ],
   "d1_databases": [
     {
       "binding": "DB",
@@ -38,5 +44,5 @@
   ],
   "vars": {
     "WEBAUTHN_APP_NAME": "lost-pet"
-  }
+  },
 }
