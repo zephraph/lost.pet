@@ -1,48 +1,40 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "lost-pet",
-  "main": "src/worker.tsx",
-  "compatibility_date": "2024-09-23",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "routes": [
-    "lost.pet/*"
-  ],
-  "assets": {
-    "binding": "ASSETS"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "migrations": [
-    {
-      "tag": "v1",
-      "new_classes": [
-        "SessionDurableObject"
-      ]
-    },
-    {
-      "tag": "v2",
-      "deleted_classes": [
-        "SessionDurableObject"
-      ]
-    }
-  ],
-  "r2_buckets": [
-    {
-      "binding": "BUCKET",
-      "bucket_name": "lost-pet-assets"
-    }
-  ],
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "lost-pet-db",
-      "database_id": "0b0a9483-123d-408c-a7fa-a6507c01f00e"
-    }
-  ],
-  "vars": {
-    "WEBAUTHN_APP_NAME": "lost-pet"
-  },
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "lost-pet",
+	"main": "src/worker.tsx",
+	"compatibility_date": "2024-09-23",
+	"compatibility_flags": ["nodejs_compat"],
+	"routes": ["lost.pet/*"],
+	"assets": {
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"migrations": [
+		{
+			"tag": "v1",
+			"new_classes": ["SessionDurableObject"]
+		},
+		{
+			"tag": "v2",
+			"deleted_classes": ["SessionDurableObject"]
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "BUCKET",
+			"bucket_name": "lost-pet-assets"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "lost-pet-db",
+			"database_id": "0b0a9483-123d-408c-a7fa-a6507c01f00e"
+		}
+	],
+	"vars": {
+		"WEBAUTHN_APP_NAME": "lost-pet"
+	}
 }

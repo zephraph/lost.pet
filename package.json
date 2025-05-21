@@ -1,62 +1,62 @@
 {
-  "name": "lost.pet",
-  "version": "1.0.0",
-  "description": "Build fast, server-driven webapps on Cloudflare with SSR, RSC, and realtime. ",
-  "main": "index.js",
-  "type": "module",
-  "keywords": [],
-  "author": "Justin Bennett <lostpet@just-be.dev>",
-  "license": "PolyForm Perimeter License 1.0.0",
-  "private": true,
-  "scripts": {
-    "build": "vite build",
-    "dev": "NODE_ENV=${NODE_ENV:-development} vite dev",
-    "dev:init": "rw-scripts dev-init",
-    "preview": "vite preview",
-    "worker:run": "rw-scripts worker-run",
-    "clean": "npm run clean:vite",
-    "clean:vite": "rm -rf ./node_modules/.vite",
-    "release": "rw-scripts ensure-deploy-env && npm run clean && prisma generate && RWSDK_DEPLOY=1 npm run build && wrangler deploy",
-    "migrate:dev": "prisma generate && wrangler d1 migrations apply DB --local",
-    "migrate:prd": "wrangler d1 migrations apply DB --remote",
-    "migrate:new": "rw-scripts migrate-new",
-    "seed": "npm run worker:run ./src/scripts/seed.ts",
-    "generate": "rw-scripts ensure-env && prisma generate && wrangler types",
-    "check": "npm run generate && npm run types",
-    "types": "tsc"
-  },
-  "dependencies": {
-    "@prisma/adapter-d1": "~6.7.0",
-    "@prisma/client": "~6.7.0",
-    "@react-google-maps/api": "^2.20.6",
-    "better-auth": "^1.2.7",
-    "mime": "^4.0.7",
-    "rwsdk": "^0.0.84"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@tailwindcss/vite": "^4.1.5",
-    "@types/node": "^22.15.15",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "prisma": "~6.7.0",
-    "sharp": "^0.34.1",
-    "tailwindcss": "^4.1.5",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "vite": "^6.2.6",
-    "wrangler": "^4.14.3",
-    "zx": "^8.5.3"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@prisma/client",
-      "@prisma/engines",
-      "@tailwindcss/oxide",
-      "esbuild",
-      "prisma",
-      "sharp",
-      "workerd"
-    ]
-  }
+	"name": "lost.pet",
+	"version": "1.0.0",
+	"description": "Build fast, server-driven webapps on Cloudflare with SSR, RSC, and realtime. ",
+	"main": "index.js",
+	"type": "module",
+	"keywords": [],
+	"author": "Justin Bennett <lostpet@just-be.dev>",
+	"license": "PolyForm Perimeter License 1.0.0",
+	"private": true,
+	"scripts": {
+		"build": "vite build",
+		"dev": "NODE_ENV=${NODE_ENV:-development} vite dev",
+		"dev:init": "rw-scripts dev-init",
+		"preview": "vite preview",
+		"worker:run": "rw-scripts worker-run",
+		"clean": "npm run clean:vite",
+		"clean:vite": "rm -rf ./node_modules/.vite",
+		"release": "rw-scripts ensure-deploy-env && npm run clean && prisma generate && RWSDK_DEPLOY=1 npm run build && wrangler deploy",
+		"migrate:dev": "prisma generate && wrangler d1 migrations apply DB --local",
+		"migrate:prd": "wrangler d1 migrations apply DB --remote",
+		"migrate:new": "rw-scripts migrate-new",
+		"seed": "npm run worker:run ./src/scripts/seed.ts",
+		"generate": "rw-scripts ensure-env && prisma generate && wrangler types",
+		"check": "npm run generate && npm run types",
+		"types": "tsc"
+	},
+	"dependencies": {
+		"@prisma/adapter-d1": "~6.7.0",
+		"@prisma/client": "~6.7.0",
+		"@react-google-maps/api": "^2.20.6",
+		"better-auth": "^1.2.7",
+		"mime": "^4.0.7",
+		"rwsdk": "^0.0.84"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@tailwindcss/vite": "^4.1.5",
+		"@types/node": "^22.15.15",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
+		"prisma": "~6.7.0",
+		"sharp": "^0.34.1",
+		"tailwindcss": "^4.1.5",
+		"tsx": "^4.19.4",
+		"typescript": "^5.8.3",
+		"vite": "^6.2.6",
+		"wrangler": "^4.14.3",
+		"zx": "^8.5.3"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@prisma/client",
+			"@prisma/engines",
+			"@tailwindcss/oxide",
+			"esbuild",
+			"prisma",
+			"sharp",
+			"workerd"
+		]
+	}
 }

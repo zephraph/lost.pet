@@ -104,7 +104,7 @@ model Pet {
   name      String
   type      String
   breed     String
-  date      DateTime
+  lastSeen  DateTime @map("date")
   image     String
   // Last seen location
   latitude  Float
@@ -113,7 +113,7 @@ model Pet {
   updatedAt DateTime @updatedAt
 
   @@index([type])
-  @@index([date])
+  @@index([lastSeen])
 }
 
 // #endregion Domain Models
