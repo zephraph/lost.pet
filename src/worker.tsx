@@ -6,6 +6,7 @@ import { Donate } from "@/app/pages/Donate";
 import { GetInvolved } from "@/app/pages/GetInvolved";
 import { Home } from "@/app/pages/Home";
 import { Listings } from "@/app/pages/Listings";
+import { Login } from "@/app/pages/Login";
 import { Pet } from "@/app/pages/Pet";
 import { ReportLost } from "@/app/pages/ReportLost";
 import { ReportSighting } from "@/app/pages/ReportSighting";
@@ -14,6 +15,8 @@ import { defineApp } from "rwsdk/worker";
 import { cloudAssetRoutes } from "./app/pages/cloud-assets";
 import { setupDb } from "./db";
 import { auth } from "./lib/auth";
+import { normalizeRoute, redirectIfLoggedIn } from "./lib/interceptors";
+import { Signup } from "./app/pages/Signup";
 
 export type AppContext = {
 	user: typeof auth.$Infer.Session.user | null;
@@ -43,6 +46,11 @@ export default defineApp([
 		route("/report-lost", [ReportLost]),
 		route("/report-sighting", [ReportSighting]),
 		route("/about", [AboutUs]),
+		route("/(login|signin|sign-in)", [redirectIfLoggedIn("/"), normalizeRoute("/login"), Login]),
+		route("/(signup|sign-up)", [redirectIfLoggedIn("/"), normalizeRoute("/signup"), Signup]),
+		route("/auth/*", (ctx) => {
+			return auth.handler(ctx.request)
+		}),
 		prefix("/cloud-assets", cloudAssetRoutes),
 	]),
 ]);
