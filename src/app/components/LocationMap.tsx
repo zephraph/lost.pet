@@ -178,7 +178,8 @@ export default function LocationMap({
 
 	const handleMapClick = useCallback(
 		(e: google.maps.MapMouseEvent) => {
-			const newPosition = { lat: e.latLng?.lat(), lng: e.latLng?.lng() };
+			if (!e.latLng) return;
+			const newPosition = { lat: e.latLng.lat(), lng: e.latLng.lng() };
 			setPosition(newPosition);
 			reverseGeocode(newPosition.lat, newPosition.lng);
 			// Update hidden inputs

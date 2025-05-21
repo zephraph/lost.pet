@@ -140,13 +140,16 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
 				</h2>
 				<div className="grid gap-6">
 					<div>
-						<label htmlFor="lastSeen" className="mb-2 block font-medium">
+						<label
+							htmlFor="lastSeenLocation"
+							className="mb-2 block font-medium"
+						>
 							Location
 						</label>
 						<input
 							required
 							type="text"
-							id="lastSeen"
+							id="lastSeenLocation"
 							className="w-full rounded-lg border border-gray-600 bg-black/20 px-4 py-2 text-white"
 							placeholder="Enter or select location on map"
 						/>
@@ -160,7 +163,7 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
 
 					<div className="h-[400px] w-full rounded-lg overflow-hidden">
 						<LocationMap
-							for="lastSeen"
+							for="lastSeenLocation"
 							latitudeId="latitude"
 							longitudeId="longitude"
 							defaultLocation={{ lat: 40.7128, lng: -74.006 }}
@@ -175,7 +178,7 @@ export function LostPetForm({ mapsApiKey }: LostPetFormProps) {
 						<input
 							id="lastSeenDate"
 							type="datetime-local"
-							name="date"
+							name="lastSeenDate"
 							required
 							defaultValue={getCurrentDateTime()}
 							max={getCurrentDateTime()}

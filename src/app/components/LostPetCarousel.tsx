@@ -80,9 +80,8 @@ export function LostPetCarousel() {
 								<p className="text-gray-300">
 									{pet.breed} • {pet.type}
 								</p>
-								<p className="mt-2 text-gray-400">Last seen: {pet.lastSeen}</p>
-								<p className="text-sm text-gray-400">
-									Missing since: {new Date(pet.date).toLocaleDateString()}
+								<p className="mt-2 text-gray-400">
+									Last seen: {new Date(pet.lastSeen).toLocaleDateString()}
 								</p>
 							</div>
 						</a>

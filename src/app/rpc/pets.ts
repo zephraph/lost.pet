@@ -5,7 +5,7 @@ import { requestInfo } from "rwsdk/worker";
 
 export async function getRecentLostPets() {
 	return db.pet.findMany({
-		orderBy: { date: "desc" },
+		orderBy: { lastSeen: "desc" },
 		take: 10, // Limit to 10 most recent pets
 	});
 }
@@ -18,7 +18,7 @@ export async function reportLostPet(formData: FormData) {
 		const name = formData.get("name") as string;
 		const type = formData.get("type") as string;
 		const breed = formData.get("breed") as string;
-		const date = new Date(formData.get("date") as string);
+		const lastSeen = new Date(formData.get("lastSeenDate") as string);
 		const latitude = Number.parseFloat(formData.get("latitude") as string);
 		const longitude = Number.parseFloat(formData.get("longitude") as string);
 		const image = formData.get("image") as File;
@@ -32,7 +32,7 @@ export async function reportLostPet(formData: FormData) {
 				name,
 				type,
 				breed,
-				date,
+				lastSeen,
 				latitude,
 				longitude,
 				image: imageUrl,

@@ -10,7 +10,9 @@ export function ReportSighting({ ctx }: RequestInfo) {
 
 				<div className="max-w-2xl">
 					<form
-						action={reportPetSighting}
+						action={async (formData) => {
+							await reportPetSighting(formData);
+						}}
 						className="grid gap-6 rounded-xl bg-white/5 p-8"
 					>
 						{/* Pet Information */}

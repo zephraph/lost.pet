@@ -1,4 +1,5 @@
 import { db, setupDb } from "@/db";
+import type { Pet } from "@prisma/client";
 import { IS_DEV } from "rwsdk/constants";
 import { defineScript } from "rwsdk/worker";
 
@@ -29,12 +30,12 @@ export default defineScript(async ({ env }) => {
 	});
 
 	// Seed pets data
-	const petsData = [
+	const petsData: Partial<Pet>[] = [
 		{
 			name: "Max",
 			type: "Dog",
 			breed: "Golden Retriever",
-			date: new Date("2024-03-20"),
+			lastSeen: new Date("2024-03-20"),
 			image: "https://placedog.net/400/400?r",
 			latitude: 40.6782,
 			longitude: -73.9442,
@@ -43,7 +44,7 @@ export default defineScript(async ({ env }) => {
 			name: "Luna",
 			type: "Cat",
 			breed: "Siamese",
-			date: new Date("2024-03-19"),
+			lastSeen: new Date("2024-03-19"),
 			image: "https://placecats.com/400/400",
 			latitude: 40.7282,
 			longitude: -73.7949,
@@ -52,7 +53,7 @@ export default defineScript(async ({ env }) => {
 			name: "Charlie",
 			type: "Dog",
 			breed: "French Bulldog",
-			date: new Date("2024-03-18"),
+			lastSeen: new Date("2024-03-18"),
 			image: "https://placedog.net/401/401?r",
 			latitude: 40.7831,
 			longitude: -73.9712,
@@ -61,7 +62,7 @@ export default defineScript(async ({ env }) => {
 			name: "Bella",
 			type: "Dog",
 			breed: "Labrador",
-			date: new Date("2024-03-17"),
+			lastSeen: new Date("2024-03-17"),
 			image: "https://placedog.net/402/402?r",
 			latitude: 40.8448,
 			longitude: -73.8648,
@@ -70,7 +71,7 @@ export default defineScript(async ({ env }) => {
 			name: "Oliver",
 			type: "Cat",
 			breed: "Persian",
-			date: new Date("2024-03-16"),
+			lastSeen: new Date("2024-03-16"),
 			image: "https://placecats.com/401/401",
 			latitude: 40.5795,
 			longitude: -74.1502,
@@ -78,7 +79,7 @@ export default defineScript(async ({ env }) => {
 	];
 
 	for (const pet of petsData) {
-		await db.pet.create({ data: pet });
+		await db.pet.create({ data: pet as Pet });
 	}
 
 	console.log("🌱 Finished seeding");
