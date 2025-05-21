@@ -1,8 +1,11 @@
 import type { RequestInfo } from "rwsdk/worker";
 import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+import { HeaderAuth } from "../components/HeaderAuth";
+import { HeaderCTAs } from "../components/HeaderCTAs";
 import { LostPetCarousel } from "../components/LostPetCarousel";
 
-export function Home({ ctx }: RequestInfo) {
+export function Home(requestInfo: RequestInfo) {
 	return (
 		<div className="min-h-screen bg-[#1C1C1C] text-white">
 			{/* Hero Section with Background Image */}
@@ -24,58 +27,13 @@ export function Home({ ctx }: RequestInfo) {
 				{/* Content */}
 				<div className="relative">
 					{/* Header */}
-					<div className="container mx-auto px-4 py-6">
-						<div className="flex items-center justify-between">
-							{/* Logo */}
-							<div className="flex items-center gap-4">
-								<div className="h-14 w-14 text-white">
-									<svg viewBox="0 0 512 512" fill="currentColor">
-										<title>Lost Pet Project Logo</title>
-										<path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z" />
-									</svg>
-								</div>
-								<div className="flex flex-col items-start">
-									<h1 className="text-3xl font-bold uppercase tracking-widest leading-none">
-										Lost Pet
-									</h1>
-									<span className="text-xl font-medium uppercase tracking-wider leading-none text-gray-300">
-										Project
-									</span>
-								</div>
-							</div>
-
-							{/* Header CTAs */}
-							<div className="flex items-center -mr-16">
-								<div className="flex gap-4">
-									<a
-										href="/report-lost"
-										className="rounded-lg bg-rose-600/90 px-6 py-3 text-lg font-semibold text-white/95 shadow-lg hover:shadow-rose-600/20 hover:bg-rose-700 hover:-translate-y-0.5 hover:scale-102 active:translate-y-0 active:scale-98 transition-all duration-150"
-									>
-										Report Lost Pet
-									</a>
-									<a
-										href="/report-sighting"
-										className="rounded-lg bg-emerald-600/90 px-6 py-3 text-lg font-semibold text-white/95 shadow-lg hover:shadow-emerald-600/20 hover:bg-emerald-700 hover:-translate-y-0.5 hover:scale-102 active:translate-y-0 active:scale-98 transition-all duration-150"
-									>
-										Report Sighting
-									</a>
-								</div>
-								<div className="ml-4 h-6 w-px bg-white/40" />
-								{ctx.user?.name ? (
-									<span className="ml-4 font-medium text-white">
-										{ctx.user.name}
-									</span>
-								) : (
-									<a
-										href="/login"
-										className="ml-4 font-medium text-white hover:text-white/80 transition-colors"
-									>
-										Log in
-									</a>
-								)}
-							</div>
-						</div>
-					</div>
+					<Header>
+						<>
+							<HeaderCTAs />
+							<div className="ml-4 h-6 w-px bg-white/40" />
+							<HeaderAuth {...requestInfo} />
+						</>
+					</Header>
 
 					{/* Main Content */}
 					<div className="container mx-auto px-4 pt-16">
