@@ -1,5 +1,4 @@
-import { db, setupDb } from "@/db";
-import type { Pet } from "@prisma/client";
+import { db, setupDb, type Pet } from "@/db";
 import { IS_DEV } from "rwsdk/constants";
 import { defineScript } from "rwsdk/worker";
 

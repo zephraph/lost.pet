@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import "../styles/mask.css";
-import type { Pet } from "@prisma/client";
+import type { Pet } from "@/db";
 import { getRecentLostPets } from "../rpc/pets";
 
 // Client component for handling scroll behavior

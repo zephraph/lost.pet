@@ -21,7 +21,7 @@
 		],
 		"paths": {
 			"@/*": ["./src/*"],
-			".prisma/*": ["./node_modules/.prisma/*"],
+			"@generated/*": ["./generated/*"],
 			"cloud-assets/*": ["./cloud-assets/*"]
 		},
 		/* Enable importing .json files */
