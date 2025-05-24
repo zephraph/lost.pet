@@ -21,3 +21,12 @@ run = "pnpm run dev"
 
 [tasks.fmt]
 run = "biome check --write --unsafe ."
+
+[tasks."check:types"]
+run = "tsc --noEmit"
+
+[tasks."check:format"]
+run = "biome check ."
+
+[tasks.check]
+depends = "check:*"
