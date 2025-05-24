@@ -26,12 +26,12 @@
 		"types": "tsc"
 	},
 	"dependencies": {
-		"@prisma/adapter-d1": "~6.8.0",
-		"@prisma/client": "~6.8.0",
+		"@prisma/adapter-d1": "~6.8.2",
+		"@prisma/client": "~6.8.2",
 		"@react-google-maps/api": "^2.20.6",
 		"better-auth": "^1.2.7",
 		"mime": "^4.0.7",
-		"rwsdk": "^0.0.84"
+		"rwsdk": "^0.0.85"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
@@ -39,13 +39,13 @@
 		"@types/node": "^22.15.15",
 		"@types/react": "^19.1.2",
 		"@types/react-dom": "^19.1.2",
-		"prisma": "~6.8.0",
+		"prisma": "~6.8.2",
 		"sharp": "^0.34.1",
 		"tailwindcss": "^4.1.5",
 		"tsx": "^4.19.4",
 		"typescript": "^5.8.3",
 		"vite": "^6.2.6",
-		"wrangler": "^4.14.3",
+		"wrangler": "^4.16.1",
 		"zx": "^8.5.3"
 	},
 	"pnpm": {
