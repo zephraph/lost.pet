@@ -1,0 +1,23 @@
+name: Format
+
+on:
+  push:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup mise
+        uses: jdx/mise-action@v2
+
+      - name: Setup environment
+        run: |
+          echo "$(mise env -D)" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: pnpm install
+          
+      - name: Run Check
+        run: mise run check

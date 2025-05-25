@@ -22,7 +22,7 @@ export const cloudAssetRoutes = [
 			headers: {
 				"Content-Type": contentType,
 				"Cache-Control": "public, max-age=600",
-				"ETag": manifest[file].hash,
+				ETag: manifest[file].hash,
 			},
 		});
 	}),
