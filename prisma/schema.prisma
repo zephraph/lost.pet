@@ -17,7 +17,6 @@ datasource db {
 
 model User {
   id        String   @id @default(uuid()) // User ID (UUID-based)
-  username  String   @unique
   createdAt DateTime @default(now())
 
   credentials   Credential[] // Relationship: One user can have many credentials

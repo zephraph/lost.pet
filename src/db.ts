@@ -17,7 +17,7 @@ export const setupDb = async (env: Env) => {
 		// context(justinvdm, 21-05-2025): prisma-client generated type appears to
 		// consider D1 adapter incompatible, though in runtime (dev and production)
 		// it works
-		// @ts-ignore
+		// @ts-expect-error
 		adapter: new PrismaD1(env.DB),
 	});
 

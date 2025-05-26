@@ -19,7 +19,6 @@ export default defineScript(async ({ env }) => {
 	await db.user.create({
 		data: {
 			id: "1",
-			username: "testuser",
 			name: "Test User",
 			email: "test@example.com",
 			emailVerified: false,
