@@ -24,8 +24,8 @@ importers:
         specifier: ^4.0.7
         version: 4.0.7
       rwsdk:
-        specifier: ^0.0.85
-        version: 0.0.85(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.4))(webpack@5.99.8)(workerd@1.20250508.0)
+        specifier: ^0.0.86
+        version: 0.0.86(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.4))(webpack@5.99.8)(workerd@1.20250508.0)
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.4
@@ -2004,8 +2004,8 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  rwsdk@0.0.85:
-    resolution: {integrity: sha512-JARTewKaQtQRJ1HCHvSW3MmBvAQ3gqYVliXJ2fzCkB2V2Zv5C+W/wv7l33V1YxXrFBuCWtHsvfhJskEWvRV4cA==}
+  rwsdk@0.0.86:
+    resolution: {integrity: sha512-mv6UC5jz+VWwfcBiGBV/CnLhn9nTRble20PTO3n6u3rANP6axgYKfWp6eaNFEIzf+95x+WbCvoAOmj1QFdxVCQ==}
     hasBin: true
     peerDependencies:
       vite: ^6.2.6
@@ -2127,10 +2127,6 @@ packages:
 
   tailwindcss@4.1.7:
     resolution: {integrity: sha512-kr1o/ErIdNhTz8uzAYL7TpaUuzKIE6QPQ4qmSdxnoX/lo+5wmUHQA6h3L5yIqEImSRnAAURDirLu/BgiXGPAhg==}
-
-  tapable@2.2.1:
-    resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
-    engines: {node: '>=6'}
 
   tapable@2.2.2:
     resolution: {integrity: sha512-Re10+NauLTMCudc7T5WLFLAwDhQ0JWdrMK+9B2M8zR5hRExKmsRDCBA7/aV/pNJFltmBFO5BAMlQFi/vq3nKOg==}
@@ -3615,7 +3611,7 @@ snapshots:
   enhanced-resolve@5.18.1:
     dependencies:
       graceful-fs: 4.2.11
-      tapable: 2.2.1
+      tapable: 2.2.2
 
   es-module-lexer@1.7.0: {}
 
@@ -4237,7 +4233,7 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  rwsdk@0.0.85(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.4))(webpack@5.99.8)(workerd@1.20250508.0):
+  rwsdk@0.0.86(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.4))(webpack@5.99.8)(workerd@1.20250508.0):
     dependencies:
       '@cloudflare/vite-plugin': 0.0.0-1bae8618b(rollup@4.40.1)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.4))(workerd@1.20250508.0)(wrangler@4.16.1(@cloudflare/workers-types@4.20250524.0))
       '@cloudflare/workers-types': 4.20250524.0
@@ -4444,8 +4440,6 @@ snapshots:
       has-flag: 4.0.0
 
   tailwindcss@4.1.7: {}
-
-  tapable@2.2.1: {}
 
   tapable@2.2.2: {}
 
