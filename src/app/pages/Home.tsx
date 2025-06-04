@@ -11,17 +11,7 @@ export function Home(requestInfo: RequestInfo) {
 			{/* Hero Section with Background Image */}
 			<div className="relative min-h-screen">
 				{/* Background image container */}
-				<div className="absolute inset-0 overflow-hidden bg-repeat">
-					<img
-						src="/cloud-assets/homepage-bg--mobile.jpg"
-						srcSet="/cloud-assets/homepage-bg--offset.jpg 1280w, /cloud-assets/homepage-bg--desktop.jpg 1024w, /cloud-assets/homepage-bg--tablet.jpg 640w, /cloud-assets/homepage-bg--mobile.jpg 320w"
-						sizes="(min-width: 1280px) 60vw, (min-width: 1024px) 70vw, (min-width: 640px) 90vw, 100vw"
-						alt="Lost pets background"
-						className="w-full h-full object-cover xl:object-[calc(30%-1vw+250px)_center] lg:object-[calc(22%-1vw-20px)_center] min-h-full min-w-full"
-						loading="eager"
-						fetchPriority="high"
-					/>
-				</div>
+				<div className="absolute inset-0 overflow-hidden bg-[url('/cloud-assets/homepage-bg--mobile.jpg')] bg-cover md:bg-left max-md:bg-center bg-no-repeat xl:bg-[url('/cloud-assets/homepage-bg--offset.jpg')] lg:bg-[url('/cloud-assets/homepage-bg--desktop.jpg')] md:bg-[url('/cloud-assets/homepage-bg--tablet.jpg')]" />
 
 				{/* Content */}
 				<div className="relative">
