@@ -4,8 +4,11 @@ import { Header } from "../components/Header";
 import { HeaderAuth } from "../components/HeaderAuth";
 import { HeaderCTAs } from "../components/HeaderCTAs";
 import { LostPetCarousel } from "../components/LostPetCarousel";
+import { getRecentLostPets } from "../rpc/pets";
 
-export function Home(requestInfo: RequestInfo) {
+export async function Home(requestInfo: RequestInfo) {
+	const pets = await getRecentLostPets();
+
 	return (
 		<div className="min-h-screen bg-[#1C1C1C] text-white">
 			{/* Hero Section with Background Image */}
@@ -39,7 +42,7 @@ export function Home(requestInfo: RequestInfo) {
 							</div>
 
 							{/* Lost Pet Carousel */}
-							<LostPetCarousel />
+							<LostPetCarousel pets={pets} />
 						</div>
 					</div>
 
