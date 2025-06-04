@@ -4,25 +4,17 @@ import { Header } from "../components/Header";
 import { HeaderAuth } from "../components/HeaderAuth";
 import { HeaderCTAs } from "../components/HeaderCTAs";
 import { LostPetCarousel } from "../components/LostPetCarousel";
+import { getRecentLostPets } from "../rpc/pets";
 
-export function Home(requestInfo: RequestInfo) {
+export async function Home(requestInfo: RequestInfo) {
+	const pets = await getRecentLostPets();
+
 	return (
 		<div className="min-h-screen bg-[#1C1C1C] text-white">
 			{/* Hero Section with Background Image */}
 			<div className="relative min-h-screen">
 				{/* Background image container */}
-				<div className="absolute inset-0 overflow-hidden">
-					<img
-						src="/cloud-assets/homepage-bg--mobile.jpg"
-						srcSet="/cloud-assets/homepage-bg--offset.jpg 1280w, /cloud-assets/homepage-bg--desktop.jpg 1024w, /cloud-assets/homepage-bg--tablet.jpg 640w, /cloud-assets/homepage-bg--mobile.jpg 320w"
-						sizes="100vw"
-						alt="Lost pets background"
-						className="w-full h-full object-cover xl:object-[calc(30%-0.8vw+250px)_center] lg:object-[calc(22%-1vw-20px)_center]"
-						style={{ minHeight: "100%", minWidth: "100%" }}
-						loading="eager"
-						fetchPriority="high"
-					/>
-				</div>
+				<div className="absolute inset-0 overflow-hidden bg-[url('/cloud-assets/homepage-bg--mobile.jpg')] bg-cover md:bg-left max-md:bg-center bg-no-repeat xl:bg-[url('/cloud-assets/homepage-bg--offset.jpg')] lg:bg-[url('/cloud-assets/homepage-bg--desktop.jpg')] md:bg-[url('/cloud-assets/homepage-bg--tablet.jpg')]" />
 
 				{/* Content */}
 				<div className="relative">
@@ -41,7 +33,7 @@ export function Home(requestInfo: RequestInfo) {
 							{/* Main Heading */}
 							<div className="mb-24">
 								<h2 className="mb-6 text-6xl font-bold leading-tight">
-									Help pets find home
+									Helping lost pets find home
 								</h2>
 								<p className="mb-8 text-xl text-gray-100">
 									A national network for reuniting lost pets with their
@@ -50,7 +42,7 @@ export function Home(requestInfo: RequestInfo) {
 							</div>
 
 							{/* Lost Pet Carousel */}
-							<LostPetCarousel />
+							<LostPetCarousel pets={pets} />
 						</div>
 					</div>
 
