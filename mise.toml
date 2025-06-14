@@ -33,3 +33,12 @@ depends = "check:*"
 
 [tasks."gen:better-auth"]
 run = "pnpm dlx @better-auth/cli@latest generate"
+
+[tasks."migrate:dev"]
+run = "prisma generate && wrangler d1 migrations apply DB --local"
+
+[tasks."migrate:prod"]
+run = "wrangler d1 migrations apply DB --remote"
+
+[tasks."migrate:new"]
+run = "pnpm rw-scripts migrate-new"
