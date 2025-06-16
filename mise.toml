@@ -3,6 +3,7 @@ pnpm = "10.12.1"
 
 [env]
 _.path = "node_modules/.bin"
+_.file = ".env"
 
 [settings]
 # Node version is managed in .node-version
@@ -18,6 +19,10 @@ run = "tsx scripts/download-assets.ts"
 
 [tasks.dev]
 run = "pnpm run dev"
+
+[tasks."dev:email"]
+run = "email dev -d src/emails"
+
 
 [tasks.fmt]
 run = "biome check --write --unsafe ."

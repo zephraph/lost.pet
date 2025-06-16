@@ -28,9 +28,13 @@
 	"dependencies": {
 		"@prisma/adapter-d1": "~6.9.0",
 		"@prisma/client": "~6.9.0",
+		"@react-email/components": "^0.0.42",
 		"@react-google-maps/api": "^2.20.6",
 		"better-auth": "^1.2.7",
 		"mime": "^4.0.7",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"resend": "^4.5.2",
 		"rwsdk": "^0.0.88"
 	},
 	"devDependencies": {
@@ -40,6 +44,7 @@
 		"@types/react": "^19.1.2",
 		"@types/react-dom": "^19.1.2",
 		"prisma": "~6.9.0",
+		"react-email": "4.0.16",
 		"sharp": "^0.34.1",
 		"tailwindcss": "^4.1.5",
 		"tsx": "^4.19.4",
@@ -50,6 +55,7 @@
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
+			"@biomejs/biome",
 			"@prisma/client",
 			"@prisma/engines",
 			"@tailwindcss/oxide",
