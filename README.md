@@ -1,18 +1,16 @@
-# Standard RedwoodSDK Starter
+# Lost Pet - Pet Tracking Application
 
-This "standard starter" is the recommended implementation for RedwoodSDK. You get a Typescript project with:
+A pet tracking and reunification application built with RedwoodSDK. This project includes:
 
 - Vite
 - database (Prisma via D1)
 - Session Management (via DurableObjects)
-- Passkey authentication (Webauthn)
+- Authentication (Better Auth with email/password)
 - Storage (via R2)
 
-## Creating your project
+## Setup
 
 ```shell
-npx degit redwoodjs/sdk/starters/standard my-project-name
-cd my-project-name
 pnpm install
 ```
 
